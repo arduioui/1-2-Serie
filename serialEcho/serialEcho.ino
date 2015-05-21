@@ -1,17 +1,18 @@
-// Echo program, return what we received
+// Arduioui
+// Echo program in Serial, return what we received
 
 void setup() {
-  // setup code here, to run once:
-  Serial.begin(9600);
+  // setup code here, to run once
+
+  Serial.begin(9600); // opens serial port, sets data rate to 9600 bps
 }
 
 void loop() {
-  // main code here, to run repeatedly:
-  if (Serial.available()) {   // if there is something to read
-    int lu = Serial.read();
-    Serial.println(lu);       // send in Hexadecimal of ASCII char
-  } else {                    // or we send "nothing"
-    Serial.println("nothing");
+  // main code here, to run repeatedly
+
+  if (Serial.available()) { // send data only when we receive data
+    String str = Serial.readString(); // read the incoming string
+    Serial.println(str);
   }
-  delay(1000);
+  delay(170);
 }
